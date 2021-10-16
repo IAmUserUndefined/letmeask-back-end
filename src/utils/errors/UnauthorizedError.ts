@@ -1,0 +1,6 @@
+export default class UnauthorizedError extends Error {
+	constructor(paramName: string){
+		super(paramName);
+		this.name = "UnauthorizedError";
+	}
+}
