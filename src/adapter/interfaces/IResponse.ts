@@ -1,7 +1,7 @@
-import { MissingParamError, InvalidParamError } from "../../utils/errors/index";
+import { MissingParamError, InvalidParamError, UnauthorizedError } from "../../utils/errors/index";
 
 interface IResponse {
-    response: string | MissingParamError | InvalidParamError | Error; 
+    response: string | MissingParamError | InvalidParamError | UnauthorizedError | Error; 
     statusCode: number;
 }
 
