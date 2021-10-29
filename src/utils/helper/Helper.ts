@@ -5,6 +5,7 @@ import { hashSync } from "bcryptjs";
 import crypto from "crypto";
 
 class Helper {
+
 	static createId() {
 		return v4();
 	}
@@ -55,6 +56,13 @@ class Helper {
 
 	static getHostEnvironmentVariable(){
 		return process.env.HOST;
+	}
+
+	static isPasswordValid(password: string){
+		return {
+			result: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?:([0-9a-zA-Z])){8,}$/.test(password),
+			message: "Sua senha precisa ter 8 caracteres, uma letra maiúscula, uma minúscula e um número"
+		};
 	}
 }
 
