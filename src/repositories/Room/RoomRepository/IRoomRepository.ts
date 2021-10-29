@@ -1,4 +1,4 @@
-import { Room } from "../../entities/Room";
+import { Room } from "../../../entities/Room";
 
 interface IRoomRepository {
     store(id: string, userId: string, code: string, name: string): Promise<void>;

@@ -1,9 +1,10 @@
-import UserModel from "../../database/models/User";
-import { User } from "../../entities/User";
+import UserModel from "../../../database/models/User";
+import { User } from "../../../entities/User";
 import { EntityRepository, getCustomRepository } from "typeorm";
+import IUserTestRepository from "./IUserTestRepository";
 
 @EntityRepository(User)
-export class UserTestRepository {
+export class UserTestRepository implements IUserTestRepository {
 	
 	private repository: UserModel;
 

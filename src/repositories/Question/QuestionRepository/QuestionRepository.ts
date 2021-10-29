@@ -1,6 +1,6 @@
 import IQuestionRepository from "./IQuestionRepository";
-import QuestionModel from "../../database/models/Question";
-import { Question } from "../../entities/Question";
+import QuestionModel from "../../../database/models/Question";
+import { Question } from "../../../entities/Question";
 import { EntityRepository, getCustomRepository } from "typeorm";
 
 @EntityRepository(Question)

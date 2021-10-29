@@ -1,5 +1,5 @@
 import { createConnection } from "typeorm";
-import { UserRepository } from "../User/UserRepository";
+import { UserRepository } from "../../User/UserRepository/UserRepository";
 import { RoomRepository } from "./RoomRepository";
 
 describe(("Test of room repository"), () => {

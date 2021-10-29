@@ -1,4 +1,4 @@
-import { Question } from "../../entities/Question";
+import { Question } from "../../../entities/Question";
 
 interface IQuestionRepository {
     store(id: string, roomId: string, name: string): Promise<void>;

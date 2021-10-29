@@ -1,4 +1,4 @@
-import { Response } from "../../entities/Response";
+import { Response } from "../../../entities/Response";
 
 interface IResponseRepository {
     store(id: string, roomId: string, name: string): Promise<void>;

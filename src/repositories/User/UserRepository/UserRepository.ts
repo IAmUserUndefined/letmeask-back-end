@@ -1,6 +1,6 @@
 import IUserRepository from "./IUserRepository";
-import UserModel from "../../database/models/User";
-import { User } from "../../entities/User";
+import UserModel from "../../../database/models/User";
+import { User } from "../../../entities/User";
 import { EntityRepository, getCustomRepository } from "typeorm";
 
 @EntityRepository(User)

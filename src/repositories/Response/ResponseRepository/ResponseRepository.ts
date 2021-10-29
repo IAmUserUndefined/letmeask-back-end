@@ -1,6 +1,6 @@
 import IResponseRepository from "./IResponseRepository";
-import ResponseModel from "../../database/models/Response";
-import { Response } from "../../entities/Response";
+import ResponseModel from "../../../database/models/Response";
+import { Response } from "../../../entities/Response";
 import { EntityRepository, getCustomRepository } from "typeorm";
 
 @EntityRepository(Response)

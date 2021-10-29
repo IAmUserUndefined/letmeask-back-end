@@ -1,6 +1,6 @@
 import IRoomRepository from "./IRoomRepository";
-import RoomModel from "../../database/models/Room";
-import { Room } from "../../entities/Room";
+import RoomModel from "../../../database/models/Room";
+import { Room } from "../../../entities/Room";
 import { EntityRepository, getCustomRepository } from "typeorm";
 
 @EntityRepository(Room)
