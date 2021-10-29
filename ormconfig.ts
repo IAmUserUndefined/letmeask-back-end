@@ -1,10 +1,12 @@
+import Helper from "./src/utils/helper/Helper";
+
 export default {
-	"type": "mariadb",
-	"host": "localhost",
-	"port": 3306,
-	"username": "root",
-	"password": "20304545",
-	"database": "letmeask",
+	"type": Helper.getDatabaseTypeEnvironmentVariable(),
+	"host": Helper.getHostEnvironmentVariable(),
+	"port": Helper.getDatabasePortEnvironmentVariable(),
+	"username": Helper.getDatabaseUsernameEnvironmentVariable(),
+	"password": Helper.getDatabasePasswordEnvironmentVariable(),
+	"database": Helper.getDatabaseNameEnvironmentVariable(),
 	"migrations": ["src/database/migrations/*.ts"],
 	"entities": ["src/entities/*.ts"],
 	"cli": {
