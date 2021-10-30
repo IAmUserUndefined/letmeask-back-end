@@ -12,7 +12,7 @@ export class UserTestRepository implements IUserTestRepository {
 		this.repository = getCustomRepository(UserModel);
 	}
 
-	async createTestUsers(){
+	async createTestUsers(): Promise<void>{
 
 		const userOne = this.repository.create({
 			id: "aa98bc1b-22f4-4fc6-be64-3d830068bddc",
@@ -52,7 +52,7 @@ export class UserTestRepository implements IUserTestRepository {
 
 	}
 
-	async deleteTestUsers(){
+	async deleteTestUsers(): Promise<void>{
 		await this.repository.delete({});
 	}
 }
