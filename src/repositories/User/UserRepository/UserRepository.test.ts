@@ -1,11 +1,6 @@
-import { createConnection } from "typeorm";
 import { UserRepository } from "./UserRepository";
 
 describe(("Test of user repository"), () => {
-
-	beforeAll(async () => {
-		await createConnection();
-	});
 
 	test("Should create user", async () => {
 		const repository = new UserRepository();

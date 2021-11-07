@@ -1,4 +1,3 @@
-import { createConnection } from "typeorm";
 import { UserRepository } from "../../User/UserRepository/UserRepository";
 import { RoomRepository } from "../../Room/RoomRepository/RoomRepository";
 import { QuestionRepository } from "./QuestionRepository";
@@ -6,7 +5,6 @@ import { QuestionRepository } from "./QuestionRepository";
 describe(("Test of question repository"), () => {
 
 	beforeAll(async () => {
-		await createConnection();
 		const userRepository = new UserRepository();
 		await userRepository.store("1", "email@teste.com", "João Pedro", "Teste123", "abc-123-456");
 		const roomRepository = new RoomRepository();
