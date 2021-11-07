@@ -13,8 +13,8 @@ model User {
   name String 
   password String
   verificationToken String
-  verificationTokenExpiryTime BigInt @default(0)
-  verifiedEmail Boolean
+  verificationTokenExpiryTime BigInt? @default(0)
+  verifiedEmail Boolean?
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
   Room Room?

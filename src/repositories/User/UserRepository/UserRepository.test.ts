@@ -72,23 +72,23 @@ describe(("Test of user repository"), () => {
 	test("Should return verification token expiry date by id", async () => {
 		const repository = new UserRepository();
 		const verificationTokenExpiryDate = await repository.getVerificationTokenExpiryDateById("1");
-		expect(verificationTokenExpiryDate).toBe("0");
+		expect(verificationTokenExpiryDate).toBe(BigInt(0));
 	});
 
 	test("Should return verification token expiry date by email", async () => {
 		const repository = new UserRepository();
 		const verificationTokenExpiryDate = await repository.getVerificationTokenExpiryDateByEmail("email@teste.com");
-		expect(verificationTokenExpiryDate).toBe("0");
+		expect(verificationTokenExpiryDate).toBe(BigInt(0));
 	});
 
 	test("Should update verification token expiry date by id", async () => {
 		const repository = new UserRepository();
-		await repository.updateVerificationTokenById("1", "1");
+		await repository.updateVerificationTokenExpiryDateById("1", BigInt(1));
 	});
 
 	test("Should update verification token expiry date by email", async () => {
 		const repository = new UserRepository();
-		await repository.updateVerificationTokenExpiryDateByEmail("email@teste.com", "1");
+		await repository.updateVerificationTokenExpiryDateByEmail("email@teste.com", BigInt(1));
 	});
 
 	test("Should update email", async () => {
