@@ -6,3 +6,48 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id String @id
+  email String @unique
+  name String 
+  password String
+  verificationToken String
+  verificationTokenExpiryTime BigInt @default(0)
+  verifiedEmail Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  Room Room?
+}
+
+model Room {
+  id String @id
+  userId String @unique
+  code String @unique
+  name String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  Question Question[]
+  User User @relation(fields: [userId], references: [id])
+}
+
+model Question {
+  id String @id
+  roomId String @unique
+  code String @unique
+  name String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  Response Response?
+  Room Room @relation(fields: [roomId], references: [id])
+}
+
+model Response {
+  id String @id
+  questionId String @unique
+  code String @unique
+  name String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  Question Question @relation(fields: [questionId], references: [id])
+}
