@@ -1,6 +1,9 @@
 interface IRequestRouters {
     body: { 
-        email ?: string 
+        email ?: string,
+        name ?: string,
+        password ?: string,
+        passwordConfirm ?: string,
     };
     query: {
          email ?: string 
@@ -8,7 +11,7 @@ interface IRequestRouters {
     params: { 
         id ?: string 
     };
-    userId: string;
+    userId: string
 }
 
 export default IRequestRouters;

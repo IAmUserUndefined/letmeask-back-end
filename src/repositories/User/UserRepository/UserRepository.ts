@@ -72,7 +72,9 @@ export class UserRepository implements IUserRepository{
 			}
 		});
 
-		return user.email;
+		const userEmail = user !== null ? user.email : null;
+
+		return userEmail;
 	}
 
 	async getId(email: string): Promise<string> {
