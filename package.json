@@ -6,7 +6,6 @@
   "author": "João Pedro",
   "scripts": {
     "dev": "ts-node-dev --files src/server.ts",
-    "orm": "ts-node-dev ./node_modules/typeorm/cli.js",
     "pretest": "eslint --fix .",
     "test": "jest --detectOpenHandles"
   },
