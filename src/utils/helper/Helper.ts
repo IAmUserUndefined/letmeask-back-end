@@ -34,30 +34,6 @@ class Helper {
 		return process.env.SECRET_KEY_JWT;
 	}
 
-	static getDatabaseUsernameEnvironmentVariable(){
-		return process.env.DB_USERNAME;
-	}
-
-	static getDatabasePasswordEnvironmentVariable(){
-		return process.env.DB_PASSWORD;
-	}
-    
-	static getDatabaseNameEnvironmentVariable(){
-		return process.env.DB_NAME;
-	}
-
-	static getDatabasePortEnvironmentVariable(){
-		return process.env.DB_PORT;
-	}
-
-	static getDatabaseTypeEnvironmentVariable(){
-		return process.env.DB_TYPE;
-	}
-
-	static getHostEnvironmentVariable(){
-		return process.env.HOST;
-	}
-
 	static isPasswordValid(password: string){
 		return {
 			result: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?:([0-9a-zA-Z])){8,}$/.test(password),
