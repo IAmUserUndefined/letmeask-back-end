@@ -72,7 +72,23 @@ export class UserRepository implements IUserRepository{
 			}
 		});
 
-		const userEmail = user !== null ? user.email : null;
+		const userEmail = user ? user.email : null;
+
+		return userEmail;
+	}
+
+	async findByEmailVerified(email: string): Promise<string> {
+		const user = await prisma.user.findMany({
+			where: {
+				AND: [
+					{ email: { equals: email } },
+					{ verifiedEmail: { equals: true }
+					},
+				],
+			},
+		});
+
+		const userEmail = user[0] ? user[0].email : null;
 
 		return userEmail;
 	}

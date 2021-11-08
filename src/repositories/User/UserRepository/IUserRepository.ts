@@ -5,6 +5,7 @@ interface IUserRepository {
     destroy(id: string): Promise<void>;
     findEmailById(id: string): Promise<string>;
     findEmailByEmail(email: string): Promise<string>;
+    findByEmailVerified(email: string): Promise<string>
     getId(email: string): Promise<string>;
     getPasswordByEmail(email: string): Promise<string>;
     getPasswordById(id: string): Promise<string>;

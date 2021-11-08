@@ -6,7 +6,8 @@ interface IRequestRouters {
         passwordConfirm ?: string,
     };
     query: {
-         email ?: string 
+         email ?: string,
+         token ?: string,
         };
     params: { 
         id ?: string 
