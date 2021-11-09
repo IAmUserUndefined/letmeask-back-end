@@ -5,6 +5,9 @@ interface IRequestRouters {
         name ?: string,
         password ?: string,
         passwordConfirm ?: string,
+        passwordCurrent ?: string,
+        newPassword ?: string,
+        newPasswordConfirm ?: string,
     };
     query: {
          email ?: string,
