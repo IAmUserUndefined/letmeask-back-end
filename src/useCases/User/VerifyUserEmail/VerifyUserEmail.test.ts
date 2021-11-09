@@ -8,7 +8,7 @@ import { UserTestRepository } from "../../../repositories/User/UserTestRepositor
 
 const userTestRepository = new UserTestRepository();
 
-describe("Create User", () => {
+describe("Verify Email", () => {
 
 	beforeAll(async () => {
 		await userTestRepository.createTestUsers();
