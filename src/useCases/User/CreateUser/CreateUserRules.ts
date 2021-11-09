@@ -13,7 +13,7 @@ export default class CreateUserRules {
 		this.mail = new Mail();
 	}
 
-	async execute({ email, name, password, passwordConfirm }: ICreateUser): Promise<string | InvalidParamError | MissingParamError | Error> {
+	async execute({ email, name, password, passwordConfirm }: ICreateUser) {
 
 		if (!email || !name ||!password || !passwordConfirm)
 			return new MissingParamError("Preencha todos os campos");
