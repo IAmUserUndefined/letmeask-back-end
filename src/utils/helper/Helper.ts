@@ -1,8 +1,11 @@
 import "dotenv/config";
 
+import { UnauthorizedError } from "../errors";
+
 import { v4 } from "uuid";
-import { hashSync } from "bcryptjs";
+import { hashSync, compareSync } from "bcryptjs";
 import crypto from "crypto";
+import jwt from "jsonwebtoken";
 
 class Helper {
 
@@ -16,6 +19,10 @@ class Helper {
 
 	static encryptPassword(password: string) {
 		return hashSync(password, 10);
+	}
+
+	static compareEncryptPassword(password: string, userPassword: string) {
+		return compareSync(password, userPassword);
 	}
 
 	static getAppUrlEnvironmentVariable(){
@@ -40,6 +47,27 @@ class Helper {
 			message: "Sua senha precisa ter 8 caracteres, uma letra maiúscula, uma minúscula e um número"
 		};
 	}
+
+	static createJwt(user: { id: string, email: string }) {
+		return jwt.sign(user, this.getSecretKeyJwtEnvironmentVariable(), { expiresIn: 7200 } );
+	}
+
+	static jwtVerify(tokenJwt: string){
+
+		try {
+
+			const decode = jwt.verify(tokenJwt, this.getSecretKeyJwtEnvironmentVariable());
+
+			return decode;
+		}
+
+		catch { return new UnauthorizedError("Token Inválido, logue-se novamente"); }
+	}
+
+	static createTokenExpiryDate() {
+		return new Date().setMinutes(new Date().getMinutes() + 10);
+	}
+
 }
 
 export default Helper;

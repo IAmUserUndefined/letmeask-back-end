@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+import { UnauthorizedError } from "../errors";
 import Helper from "./Helper";
 
 describe(("Test of create functions"), () => {
@@ -58,4 +61,54 @@ describe("Test of password regex", () => {
 		const { result } = Helper.isPasswordValid("Corinthians1910");
 		expect(result).toBe(true);
 	});
+});
+
+describe("Test of password compare", () => {
+	test("Should return null, because the password is incorrect", () => {
+        
+		const encryption = Helper.encryptPassword("Corinthians1910");
+		const response = Helper.compareEncryptPassword("Corinthians19101", encryption);
+		expect(response).toBe(false);
+	});
+
+	test("Should return true, because the password is correct", () => {
+        
+		const encryption = Helper.encryptPassword("Corinthians1910");
+		const response = Helper.compareEncryptPassword("Corinthians1910", encryption);
+		expect(response).toBe(true);
+	});
+});
+
+describe("Test of creation functions", () => {
+
+	test("Should return the creations", () => {
+          
+		const id = Helper.createId();
+		const token = Helper.createToken();
+		const tokenExpiryDate = Helper.createTokenExpiryDate();
+		const jwt = Helper.createJwt( { id: "1", email: "joao@teste.com" } );
+
+		expect(id).not.toBeUndefined();
+		expect(token).not.toBeUndefined();
+		expect(tokenExpiryDate).not.toBeUndefined();
+		expect(jwt).not.toBeUndefined();
+	});
+});
+
+describe("Test of jwt verify", () => {
+
+	test("Should not validate the jwt,", () => {
+
+		const jwt = "SecretKeyJWT";    
+		const response = Helper.jwtVerify(jwt);
+		expect(response).toBeInstanceOf(UnauthorizedError);
+	});
+
+	test("Should validate the jwt", () => {
+
+		const jwt = Helper.createJwt( { id: "1", email: "joao@teste.com" } );
+		const verifyJwt: any = Helper.jwtVerify(jwt);
+		expect(verifyJwt.id).toBe("1");
+	});
+    
 });
