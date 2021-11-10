@@ -10,6 +10,8 @@ import VerifyUserEmailController from "../useCases/User/VerifyUserEmail/VerifyUs
 import UserLoginController from "../useCases/User/UserLogin/UserLoginController";
 import DeleteUserController from "../useCases/User/DeleteUser/DeleteUserController";
 import UpdatePasswordController from "../useCases/User/UpdateUserPassword/UpdateUserPasswordController";
+import SendUserEmailUpdateLinkController from "../useCases/User/UpdateUserEmail/SendUserEmailUpdateLink/SendUserEmailUpdateLinkController";
+import UpdateUserEmailController from "../useCases/User/UpdateUserEmail/UpdateUserEmail/UpdateUserEmailController";
 
 const router = Router();
 
@@ -18,5 +20,7 @@ router.post("/verify-email", adapterRouters(VerifyUserEmailController.handle));
 router.post("/user/login", adapterRouters(UserLoginController.handle));
 router.delete("/user/delete", adapterMiddlewares(authenticateUser), adapterRouters(DeleteUserController.handle));
 router.patch("/user/password/update", adapterMiddlewares(authenticateUser), adapterRouters(UpdatePasswordController.handle));
+router.post("/user/email/send-token-update-email", adapterMiddlewares(authenticateUser), adapterRouters(SendUserEmailUpdateLinkController.handle));
+router.patch("/update-email", adapterMiddlewares(authenticateUser), adapterRouters(UpdateUserEmailController.handle));
 
 export default router;
