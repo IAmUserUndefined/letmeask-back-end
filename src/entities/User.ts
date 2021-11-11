@@ -1,5 +1,4 @@
 class User {
-
 	readonly id: string;
 	name: string;
 	email: string;
@@ -10,7 +9,6 @@ class User {
 	admin: string;
 	createdAt: Date;
 	updatedAt: Date;
-
 }
   
 export { User };
