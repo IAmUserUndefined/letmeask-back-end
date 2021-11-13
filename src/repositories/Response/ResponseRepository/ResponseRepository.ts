@@ -4,10 +4,11 @@ import IResponseRepository from "./IResponseRepository";
 
 export class ResponseRepository implements IResponseRepository {
 
-	async store(id: string, questionId: string, name: string): Promise<void> {
+	async store(id: string, userId: string, questionId: string, name: string): Promise<void> {
 		await prisma.response.create({
 			data: {
 				id: id,
+				userId: userId,
 				questionId: questionId,
 				name: name
 			}

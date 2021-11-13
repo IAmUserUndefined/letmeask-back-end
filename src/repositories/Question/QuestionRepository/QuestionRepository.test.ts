@@ -20,7 +20,7 @@ describe(("Test of question repository"), () => {
 
 	test("Should create question", async () => {
 		const repository = new QuestionRepository();
-		await repository.store("1", "1", "Qual é a fórmula de Bhaskara");
+		await repository.store("1", "1", "1", "Qual é a fórmula de Bhaskara");
 	});
 
 	test("Should get questions", async () => {

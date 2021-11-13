@@ -11,7 +11,7 @@ describe(("Test of response repository"), () => {
 		const roomRepository = new RoomRepository();
 		await roomRepository.store("1", "1", "#45645489489", "Matemática");
 		const questionRepository = new QuestionRepository();
-		await questionRepository.store("1", "1", "Qual é a fórmula de Bhaskara");
+		await questionRepository.store("1", "1", "1", "Qual é a fórmula de Bhaskara");
 	});
 
 	afterAll(async () => {
@@ -25,7 +25,7 @@ describe(("Test of response repository"), () => {
 
 	test("Should create response", async () => {
 		const repository = new ResponseRepository();
-		await repository.store("1", "1", "(-b -+ Raiz Quadra (b ^ 2 - 4 * a * c)) / 2a");
+		await repository.store("1", "1", "1", "(-b -+ Raiz Quadra (b ^ 2 - 4 * a * c)) / 2a");
 	});
 
 	test("Should get response", async () => {
