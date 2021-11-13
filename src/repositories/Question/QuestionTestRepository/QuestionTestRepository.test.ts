@@ -1,13 +1,13 @@
 import { QuestionTestRepository } from "./QuestionTestRepository";
 
-describe(("Test of user repository"), () => {
+describe(("Test of question repository"), () => {
 
-	test("Should create test user", async () => {
+	test("Should create test question", async () => {
 		const repository = new QuestionTestRepository();
 		await repository.createTestQuestion();
 	});
 
-	test("Should remove test user", async () => {
+	test("Should remove test question", async () => {
 		const repository = new QuestionTestRepository();
 		await repository.deleteTestQuestion();
 	});
