@@ -5,8 +5,9 @@ import Helper from "../../utils/helper/Helper";
 
 import hbs from "nodemailer-express-handlebars";
 import nodemailer, { SentMessageInfo, Transporter } from "nodemailer";
+import IMail from "./IMail";
 
-class Mail {
+class Mail implements IMail {
 
 	private mail: Transporter<SentMessageInfo>;
 
@@ -29,7 +30,7 @@ class Mail {
 		}));
 	}
 
-	async sendMail(to: string, subject: string, template: string, context: any) {
+	async sendMail(to: string, subject: string, template: string, context: any): Promise<void> {
 		const email = {
 			from: "Minhas Despesas",
 			to: to,
