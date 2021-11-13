@@ -1,6 +1,6 @@
-interface IUserTestRepository {
+interface IRoomTestRepository {
     createTestRoom(): Promise<void>;
     deleteTestRoom(): Promise<void>;
 }
 
-export default IUserTestRepository;
+export default IRoomTestRepository;
