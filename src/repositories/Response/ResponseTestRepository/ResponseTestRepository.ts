@@ -48,6 +48,7 @@ export class ResponseTestRepository implements IResponseTestRepository {
 	}
 
 	async deleteTestResponse(){
+		await prisma.response.deleteMany({});
 		await prisma.question.deleteMany({});
 		await prisma.room.deleteMany({});
 		await prisma.user.deleteMany({});
