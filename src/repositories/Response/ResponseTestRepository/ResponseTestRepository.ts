@@ -45,6 +45,24 @@ export class ResponseTestRepository implements IResponseTestRepository {
 			}
 		});
 
+		await prisma.question.create({
+			data: {
+				id: "hh98bc1b-22f4-4fc6-be64-3d830068beea",
+				userId: "hh98aa1b-22f4-4fc6-be64-3d83006abeec",
+				roomId: "hh98bc1b-22f4-4fc6-be64-3d830068beec",
+				name: "Quando o Brasil foi descoberto"
+			}
+		});
+
+		await prisma.response.create({
+			data: {
+				id: "hh98bc1b-22f4-4fc6-be64-3d830068beea",
+				userId: "hh98aa1b-22f4-4fc6-be64-3d83006abeec",
+				questionId: "hh98bc1b-22f4-4fc6-be64-3d830068beea",
+				name: "Quando o Brasil foi descoberto"
+			}
+		});
+
 	}
 
 	async deleteTestResponse(){

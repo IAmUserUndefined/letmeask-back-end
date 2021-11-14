@@ -7,6 +7,7 @@ import authenticateUser from "../middlewares/authenticateUser";
 import authenticateAdmin from "../middlewares/authenticateAdmin";
 
 import CreateResponseController from "../useCases/Response/CreateResponse/CreateResponseController";
+import GetResponsesController from "../useCases/Response/GetResponses/GetResponsesController";
 
 const router = Router();
 
@@ -16,5 +17,7 @@ router.post(
 	adapterMiddlewares(authenticateAdmin), 
 	adapterRouters(CreateResponseController.handle)
 );
+
+router.get("/response/:roomId/:questionId", adapterRouters(GetResponsesController.handle));
 
 export default router;
