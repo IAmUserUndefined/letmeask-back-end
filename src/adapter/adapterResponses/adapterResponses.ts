@@ -1,6 +1,6 @@
-import { MissingParamError, InvalidParamError, UnauthorizedError } from "../../utils/errors/index";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
-const ok = async (response: string | Error | MissingParamError | InvalidParamError | UnauthorizedError) => {
+const ok = async (response: any) => {
 	return {
 		statusCode: 200,
 		response: response

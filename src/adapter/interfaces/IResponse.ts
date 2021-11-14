@@ -1,7 +1,7 @@
-import { MissingParamError, InvalidParamError, UnauthorizedError } from "../../utils/errors/index";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 interface IResponse {
-    response: string | MissingParamError | InvalidParamError | UnauthorizedError | Error; 
+    response: any; 
     statusCode: number;
 }
 
