@@ -14,7 +14,8 @@ interface IRequestRouters {
          token ?: string,
         };
     params: { 
-        id ?: string 
+        id ?: string,
+        roomId ?: string
     };
     userId: string
 }

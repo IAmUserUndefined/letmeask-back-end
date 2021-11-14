@@ -7,7 +7,8 @@ export default (middleware: (request: IRequestMiddleware ) => Promise<string | v
 	return async (req: Request, res: Response, next: NextFunction) => {
 
 		const response = await middleware({
-			headers: req.headers
+			headers: req.headers,
+			params: req.params
 		});
 
 		if (response instanceof UnauthorizedError)
