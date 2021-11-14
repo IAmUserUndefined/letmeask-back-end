@@ -8,6 +8,7 @@ import authenticateAdmin from "../middlewares/authenticateAdmin";
 
 import CreateResponseController from "../useCases/Response/CreateResponse/CreateResponseController";
 import GetResponsesController from "../useCases/Response/GetResponses/GetResponsesController";
+import DeleteResponseController from "../useCases/Response/DeleteResponse/DeleteResponseController";
 
 const router = Router();
 
@@ -18,6 +19,13 @@ router.post(
 	adapterRouters(CreateResponseController.handle)
 );
 
-router.get("/response/:roomId/:questionId", adapterRouters(GetResponsesController.handle));
+router.get("/response/:roomId/:questionId", adapterMiddlewares(authenticateUser), adapterRouters(GetResponsesController.handle));
+
+router.delete(
+	"/response/:roomId/:responseId", 
+	adapterMiddlewares(authenticateUser), 
+	adapterMiddlewares(authenticateAdmin), 
+	adapterRouters(DeleteResponseController.handle)
+);
 
 export default router;
