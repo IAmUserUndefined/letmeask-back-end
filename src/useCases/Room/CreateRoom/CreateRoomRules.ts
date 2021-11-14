@@ -13,7 +13,7 @@ export default class CreateRoomRules {
 
 	async execute( { userId, name }: ICreateRoom ) {
 
-		const room = await this.repository.getManageRoom(userId);
+		const room = await this.repository.getManageRoomId(userId);
 
 		if (room)
 			return new UnauthorizedError("Você já tem uma sala criada, exclua ela para criar outra");

@@ -36,6 +36,15 @@ export class QuestionTestRepository implements IQuestionTestRepository {
 			}
 		});
 
+		await prisma.question.create({
+			data: {
+				id: "hh98bc1b-22f4-4fc6-be64-3d830068beec",
+				roomId: "hh98bc1b-22f4-4fc6-be64-3d830068beec",
+				userId: "hh98aa1b-22f4-4fc6-be64-3d830068beec",
+				name: "Qual o melhor jogador do mundo?"
+			}
+		});
+
 	}
 
 	async deleteTestQuestion(){

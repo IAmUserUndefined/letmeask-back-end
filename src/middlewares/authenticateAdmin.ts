@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import IRequestMiddleware from "../adapter/interfaces/IRequestMiddlewares";
-import { Room } from "../entities/Room";
 import { RoomRepository } from "../repositories/Room/RoomRepository/RoomRepository";
 import { UnauthorizedError } from "../utils/errors/index";
 
@@ -17,10 +16,10 @@ export default async (request: IRequestMiddleware) => {
 
 	const roomRepository = new RoomRepository();
 
-	const room: Room = await roomRepository.getManageRoom(decode.id);
+	const room = await roomRepository.getManageRoomId(decode.id);
 
 	const { roomId } = request.params;
 
-	if(room.id !== roomId)
+	if(room !== roomId)
 		return new UnauthorizedError("Só o administrador da sala pode fazer essa ação"); 
 };

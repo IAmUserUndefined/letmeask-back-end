@@ -15,13 +15,16 @@ export class RoomRepository implements IRoomRepository{
 		});
 	}
 
-	async getManageRoom(userId: string): Promise<Room> {
+	async getManageRoomId(userId: string): Promise<string> {
 		const room = await prisma.room.findUnique({
 			where: {
 				userId: userId
 			}
 		});
-		return room;
+		
+		const roomId = room ? room.id : null;
+
+		return roomId;
 	}
 
 	async getRooms(): Promise<Room[]> {
