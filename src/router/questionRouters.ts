@@ -9,6 +9,7 @@ import ensureUserNotBeRoomAdmin from "../middlewares/ensureUserNotBeRoomAdmin";
 
 import CreateQuestionController from "../useCases/Question/CreateQuestion/CreateQuestionController";
 import DeleteQuestionController from "../useCases/Question/DeleteQuestion/DeleteQuestionController";
+import GetQuestionsController from "../useCases/Question/GetQuestions/GetQuestionsController";
 
 const router = Router();
 
@@ -25,5 +26,7 @@ router.delete(
 	adapterMiddlewares(authenticateAdmin), 
 	adapterRouters(DeleteQuestionController.handle)
 );
+
+router.get("/question/:roomId", adapterRouters(GetQuestionsController.handle));
 
 export default router;
