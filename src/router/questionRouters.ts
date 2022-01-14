@@ -14,19 +14,19 @@ import GetQuestionsController from "../useCases/Question/GetQuestions/GetQuestio
 const router = Router();
 
 router.post(
-	"/question/:roomId", 
+	"/question/:roomCode", 
 	adapterMiddlewares(authenticateUser), 
 	adapterMiddlewares(ensureUserNotBeRoomAdmin), 
 	adapterRouters(CreateQuestionController.handle)
 );
 
 router.delete(
-	"/question/:roomId/:questionId", 
+	"/question/:roomCode/:questionId", 
 	adapterMiddlewares(authenticateUser), 
 	adapterMiddlewares(authenticateAdmin), 
 	adapterRouters(DeleteQuestionController.handle)
 );
 
-router.get("/question/:roomId", adapterRouters(GetQuestionsController.handle));
+router.get("/question/:roomCode", adapterRouters(GetQuestionsController.handle));
 
 export default router;

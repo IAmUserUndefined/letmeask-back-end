@@ -31,7 +31,7 @@ export class RoomTestRepository implements IRoomTestRepository {
 			data: {
 				id: "hh98bc1b-22f4-4fc6-be64-3d830068beec",
 				userId: "hh98bc1b-22f4-4fc6-be64-3d830068beec",
-				code: "#10000000000000",
+				code: "hh98bc1b-22f4-4fc6-be64-3d830068beec",
 				name: "História"
 			}
 		});

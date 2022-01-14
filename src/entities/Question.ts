@@ -1,6 +1,6 @@
 class Question {
 	readonly id: string;
-	roomId: string;
+	roomCode: string;
 	name: string;
 	createdAt: Date;  
 	updatedAt: Date;

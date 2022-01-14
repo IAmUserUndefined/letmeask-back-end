@@ -75,7 +75,6 @@ describe("Create Room", () => {
 			});
             
 		expect(response.statusCode).toBe(200);
-		expect(response.body.response).toBe("Sala criada com sucesso");
 	});
     
 });

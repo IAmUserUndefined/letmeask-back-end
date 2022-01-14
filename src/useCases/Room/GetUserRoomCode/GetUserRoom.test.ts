@@ -8,7 +8,7 @@ import { RoomTestRepository } from "../../../repositories/Room/RoomTestRepositor
 
 const roomTestRepository = new RoomTestRepository();
 
-describe("Delete room", () => {
+describe("Get room", () => {
 
 	beforeAll(async () => {
 		await roomTestRepository.createTestRoom();
@@ -17,8 +17,8 @@ describe("Delete room", () => {
 	afterAll(async () => {
 		await roomTestRepository.deleteTestRoom();
 	});
-
-	test("Should delete room", async () => {
+    
+	test("Should get room", async () => {
 
 		const token = await request(app)
 			.post("/user/login")
@@ -28,10 +28,9 @@ describe("Delete room", () => {
 			});
 
 		const response = await request(app)
-			.delete("/room/hh98bc1b-22f4-4fc6-be64-3d830068beec")
+			.get("/room-code")
 			.set("Authorization", `Bearer ${token.body.response}`);
 
-		expect(response.body.response).toBe("Sala excluída com sucesso");
 		expect(response.statusCode).toBe(200);
 	});
 });

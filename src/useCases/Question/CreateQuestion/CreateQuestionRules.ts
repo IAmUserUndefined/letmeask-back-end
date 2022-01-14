@@ -11,7 +11,7 @@ export default class CreateQuestionRules {
 		this.repository = new QuestionRepository();
 	}
 
-	async execute( { question, userId, roomId }: ICreateQuestion ) {
+	async execute( { question, userId, roomCode }: ICreateQuestion ) {
         
 		if(!question) 
 			return new MissingParamError("Preencha o nome da questão");
@@ -19,7 +19,7 @@ export default class CreateQuestionRules {
 		await this.repository.store(
 			Helper.createId(),
 			userId,
-			roomId,
+			roomCode,
 			question
 		);
 

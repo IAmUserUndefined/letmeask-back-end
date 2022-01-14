@@ -1,33 +1,15 @@
-import { Response } from "../../../entities/Response";
 import prisma from "../../../../prisma/index";
 import IResponseRepository from "./IResponseRepository";
 
 export class ResponseRepository implements IResponseRepository {
 
-	async store(id: string, userId: string, questionId: string, name: string): Promise<void> {
-		await prisma.response.create({
-			data: {
-				id: id,
-				userId: userId,
-				questionId: questionId,
-				name: name
-			}
-		});
-	}
-
-	async getResponse(questionId: string): Promise<Response[]> {
-		const response = await prisma.response.findMany({
-			where: {
-				questionId: questionId
-			}
-		});
-		return response;
-	}
-
-	async destroy(id: string): Promise<void> {
-		await prisma.response.delete({
+	async store(id: string, response: string): Promise<void> {
+		await prisma.question.update({
 			where: {
 				id: id
+			},
+			data: {
+				response: response
 			}
 		});
 	}

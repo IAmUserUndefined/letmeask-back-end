@@ -20,7 +20,7 @@ export class ResponseTestRepository implements IResponseTestRepository {
 			data: {
 				id: "hh98bc1b-22f4-4fc6-be64-3d830068beec",
 				userId: "hh98bc1b-22f4-4fc6-be64-3d830068beed",
-				code: "#10000000000000",
+				code: "hh98bc1b-22f4-4fc6-be64-3d830068beec",
 				name: "História"
 			}
 		});
@@ -40,7 +40,7 @@ export class ResponseTestRepository implements IResponseTestRepository {
 			data: {
 				id: "hh98bc1b-22f4-4fc6-be64-3d830068beec",
 				userId: "hh98aa1b-22f4-4fc6-be64-3d83006abeec",
-				roomId: "hh98bc1b-22f4-4fc6-be64-3d830068beec",
+				roomCode: "hh98bc1b-22f4-4fc6-be64-3d830068beec",
 				name: "Quando aconteceu a revolução francesa?"
 			}
 		});
@@ -49,16 +49,16 @@ export class ResponseTestRepository implements IResponseTestRepository {
 			data: {
 				id: "hh98bc1b-22f4-4fc6-be64-3d830068beea",
 				userId: "hh98aa1b-22f4-4fc6-be64-3d83006abeec",
-				roomId: "hh98bc1b-22f4-4fc6-be64-3d830068beec",
+				roomCode: "hh98bc1b-22f4-4fc6-be64-3d830068beec",
 				name: "Quando o Brasil foi descoberto"
 			}
 		});
 
-		await prisma.response.create({
+		await prisma.question.update({
+			where: {
+				id: "hh98bc1b-22f4-4fc6-be64-3d830068beea"
+			},
 			data: {
-				id: "hh98bc1b-22f4-4fc6-be64-3d830068beea",
-				userId: "hh98aa1b-22f4-4fc6-be64-3d83006abeec",
-				questionId: "hh98bc1b-22f4-4fc6-be64-3d830068beea",
 				name: "Quando o Brasil foi descoberto"
 			}
 		});
@@ -66,7 +66,6 @@ export class ResponseTestRepository implements IResponseTestRepository {
 	}
 
 	async deleteTestResponse(){
-		await prisma.response.deleteMany({});
 		await prisma.question.deleteMany({});
 		await prisma.room.deleteMany({});
 		await prisma.user.deleteMany({});

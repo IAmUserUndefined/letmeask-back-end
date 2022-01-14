@@ -20,21 +20,15 @@ describe(("Test of room repository"), () => {
 
 	test("Should get rooms", async () => {
 		const repository = new RoomRepository();
-		const room = await repository.getRooms();
-		expect(room[0].id).toBe("1");
-		expect(room[0].userId).toBe("1");
-		expect(room[0].code).toBe("#45645489489");
-		expect(room[0].name).toBe("Matemática");
-	});
-
-	test("Should get room admin", async () => {
-		const repository = new RoomRepository();
-		const room = await repository.getManageRoomId("1");
-		expect(room).toBe("1");
+		const room = await repository.getRoom("#45645489489");
+		expect(room.id).toBe("1");
+		expect(room.userId).toBe("1");
+		expect(room.code).toBe("#45645489489");
+		expect(room.name).toBe("Matemática");
 	});
 
 	test("Should delete room", async () => {
 		const repository = new RoomRepository();
-		await repository.destroy("1");
+		await repository.destroy("#45645489489");
 	});
 });

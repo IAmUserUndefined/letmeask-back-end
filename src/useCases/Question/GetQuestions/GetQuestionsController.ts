@@ -6,11 +6,11 @@ export default new class GetQuestionsController {
 
 	async handle(request: IRequestRouters) {
 
-		const { roomId } = request.params;
+		const { roomCode } = request.params;
 
 		const getQuestionsRules = new GetQuestionsRules();
 
-		const response = await getQuestionsRules.execute( { roomId } );
+		const response = await getQuestionsRules.execute( { roomCode } );
 
 		return ok(response);
 	}

@@ -1,7 +1,6 @@
 interface ICreateResponse {
-    response: string, 
-    userId: string,
-    questionId: string
+    questionId: string,
+    response: string,
 }
 
 export default ICreateResponse;

@@ -11,33 +11,20 @@ describe(("Test of response repository"), () => {
 		const roomRepository = new RoomRepository();
 		await roomRepository.store("1", "1", "#45645489489", "Matemática");
 		const questionRepository = new QuestionRepository();
-		await questionRepository.store("1", "1", "1", "Qual é a fórmula de Bhaskara");
+		await questionRepository.store("1", "1", "#45645489489", "Qual é a fórmula de Bhaskara");
 	});
 
 	afterAll(async () => {
 		const questionRepository = new QuestionRepository();
 		await questionRepository.destroy("1");
 		const roomRepository = new RoomRepository();
-		await roomRepository.destroy("1");
+		await roomRepository.destroy("#45645489489");
 		const userRepository = new UserRepository();
 		await userRepository.destroy("1");
 	});
 
 	test("Should create response", async () => {
 		const repository = new ResponseRepository();
-		await repository.store("1", "1", "1", "(-b -+ Raiz Quadra (b ^ 2 - 4 * a * c)) / 2a");
-	});
-
-	test("Should get response", async () => {
-		const repository = new ResponseRepository();
-		const question = await repository.getResponse("1");
-		expect(question[0].id).toBe("1");
-		expect(question[0].questionId).toBe("1");
-		expect(question[0].name).toBe("(-b -+ Raiz Quadra (b ^ 2 - 4 * a * c)) / 2a");
-	});
-
-	test("Should delete response", async () => {
-		const repository = new ResponseRepository();
-		await repository.destroy("1");
+		await repository.store("1", "(-b -+ Raiz Quadra (b ^ 2 - 4 * a * c)) / 2a");
 	});
 });

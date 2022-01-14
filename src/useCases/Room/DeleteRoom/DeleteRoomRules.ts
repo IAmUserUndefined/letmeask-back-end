@@ -9,8 +9,8 @@ export default class DeleteRoomRules {
 		this.repository = new RoomRepository();
 	}
 
-	async execute( { roomId }: IDeleteRoom ) {
-		await this.repository.destroy(roomId);
+	async execute( { roomCode }: IDeleteRoom ) {
+		await this.repository.destroy(roomCode);
 		return "Sala excluída com sucesso";
 	}
 }

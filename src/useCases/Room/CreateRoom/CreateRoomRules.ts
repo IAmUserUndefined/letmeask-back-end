@@ -13,19 +13,19 @@ export default class CreateRoomRules {
 
 	async execute( { userId, name }: ICreateRoom ) {
 
-		const room = await this.repository.getManageRoomId(userId);
+		const codeRoom = await this.repository.getUserRoomCode(userId);
 
-		if (room)
+		if (codeRoom)
 			return new UnauthorizedError("Você já tem uma sala criada, exclua ela para criar outra");
 
 		if (!name)
 			return new MissingParamError("Preencha o nome da sala");
 
-		const code = `#${Math.floor(Math.random() * 100000000000)}`;
+		const code = `${Math.floor(Math.random() * 100000)}`;
 
 		await this.repository.store(Helper.createId(), userId, code, name);
 
-		return "Sala criada com sucesso";
+		return code;
 	}
 
 }

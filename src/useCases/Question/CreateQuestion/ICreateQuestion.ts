@@ -1,6 +1,6 @@
 interface ICreateQuestion {
     question: string,
-    roomId: string,
+    roomCode: string,
     userId: string
 }
 

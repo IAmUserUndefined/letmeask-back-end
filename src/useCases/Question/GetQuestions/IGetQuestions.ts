@@ -1,5 +1,5 @@
 interface IGetQuestions {
-    roomId: string
+    roomCode: string
 }
 
 export default IGetQuestions;

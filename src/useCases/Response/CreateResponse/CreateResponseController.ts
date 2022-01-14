@@ -10,11 +10,9 @@ export default new class CreateResponseController {
 
 		const { questionId } = request.params;
 
-		const userId = request.userId;
-
 		const createResponseRules = new CreateResponseRules();
 
-		const responseHandle = await createResponseRules.execute( { response, userId, questionId } ); 
+		const responseHandle = await createResponseRules.execute( { response, questionId } ); 
 
 		return ok(responseHandle);
 	}

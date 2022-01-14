@@ -1,6 +1,5 @@
 interface IDeleteRoom {
-    roomId: string,
-    userId: string
+    roomCode: string,
 }
 
 export default IDeleteRoom;

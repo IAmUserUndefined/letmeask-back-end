@@ -48,7 +48,7 @@ describe("Delete Question", () => {
 			.delete("/question/hh98bc1b-22f4-4fc6-be64-3d830068beec/hh98bc1b-22f4-4fc6-be64-3d830068beec")
 			.set("Authorization", `Bearer ${token.body.response}`);
 
-		expect(response.statusCode).toBe(200);
 		expect(response.body.response).toBe("Questão excluída com sucesso");
+		expect(response.statusCode).toBe(200);
 	});
 });

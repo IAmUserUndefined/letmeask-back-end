@@ -8,13 +8,13 @@ export default new class CreateQuestionController {
 
 		const { question } = request.body;
 
-		const { roomId } = request.params;
+		const { roomCode } = request.params;
 
 		const userId = request.userId;
 
 		const createQuestionRules = new CreateQuestionRules();
 
-		const response = await createQuestionRules.execute( { question, userId, roomId } );
+		const response = await createQuestionRules.execute( { question, userId, roomCode } );
 
 		return ok(response);
 	}

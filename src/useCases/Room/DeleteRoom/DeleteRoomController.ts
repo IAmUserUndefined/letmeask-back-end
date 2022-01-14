@@ -6,13 +6,11 @@ export default new class DeleteRoomController {
 
 	async handle(request: IRequestRouters) {
 
-		const { roomId } = request.params;
-
-		const userId = request.userId;
+		const { roomCode } = request.params;
 
 		const deleteRoomRules = new DeleteRoomRules();
 
-		const response = await deleteRoomRules.execute( { roomId, userId } );
+		const response = await deleteRoomRules.execute( { roomCode } );
 
 		return ok(response);
 	}

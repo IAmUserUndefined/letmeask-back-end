@@ -1,6 +1,7 @@
 import { RoomRepository } from "../../../repositories/Room/RoomRepository/RoomRepository";
+import IGetUserRoom from "./IGetUserRoomCode";
 
-export default class GetRoomsRules {
+export default class GetUserRoomCodeRules {
 
 	private repository: RoomRepository;
 
@@ -8,7 +9,7 @@ export default class GetRoomsRules {
 		this.repository = new RoomRepository();
 	}
 
-	async execute() {
-		return await this.repository.getRooms();
+	async execute({ userId }: IGetUserRoom) {
+		return await this.repository.getUserRoomCode(userId);
 	}
 }

@@ -8,7 +8,7 @@ import { RoomTestRepository } from "../../../repositories/Room/RoomTestRepositor
 
 const roomTestRepository = new RoomTestRepository();
 
-describe("Get rooms", () => {
+describe("Get room", () => {
 
 	beforeAll(async () => {
 		await roomTestRepository.createTestRoom();
@@ -28,12 +28,12 @@ describe("Get rooms", () => {
 			});
 
 		const response = await request(app)
-			.get("/room")
+			.get("/room/hh98bc1b-22f4-4fc6-be64-3d830068beec")
 			.set("Authorization", `Bearer ${token.body.response}`);
 
 		expect(response.statusCode).toBe(200);
-		expect(response.body.response[0].id).not.toBeUndefined();
-		expect(response.body.response[0].code).not.toBeUndefined();
-		expect(response.body.response[0].name).not.toBeUndefined();
+		expect(response.body.response.id).not.toBeUndefined();
+		expect(response.body.response.code).not.toBeUndefined();
+		expect(response.body.response.name).not.toBeUndefined();
 	});
 });

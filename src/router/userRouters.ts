@@ -10,6 +10,8 @@ import VerifyUserEmailController from "../useCases/User/VerifyUserEmail/VerifyUs
 import UserLoginController from "../useCases/User/UserLogin/UserLoginController";
 import DeleteUserController from "../useCases/User/DeleteUser/DeleteUserController";
 import UpdatePasswordController from "../useCases/User/UpdateUserPassword/UpdateUserPasswordController";
+import UpdateUsernameController from "../useCases/User/UpdateUsername/UpdateUsernameController";
+import GetUsernameController from "../useCases/User/GetUsername/GetUsernameController";
 import SendUserEmailUpdateLinkController from "../useCases/User/UpdateUserEmail/SendUserEmailUpdateLink/SendUserEmailUpdateLinkController";
 import UpdateUserEmailController from "../useCases/User/UpdateUserEmail/UpdateUserEmail/UpdateUserEmailController";
 import SendUserPasswordRecoveryLinkController from "../useCases/User/RecoverUserPassword/SendUserPasswordRecoveryLink/SendUserPasswordRecoveryLinkController";
@@ -24,6 +26,8 @@ router.delete("/user/delete", adapterMiddlewares(authenticateUser), adapterRoute
 router.patch("/user/password/update", adapterMiddlewares(authenticateUser), adapterRouters(UpdatePasswordController.handle));
 router.post("/user/email/send-token-update-email", adapterMiddlewares(authenticateUser), adapterRouters(SendUserEmailUpdateLinkController.handle));
 router.patch("/update-email", adapterMiddlewares(authenticateUser), adapterRouters(UpdateUserEmailController.handle));
+router.post("/get-name", adapterMiddlewares(authenticateUser), adapterRouters(GetUsernameController.handle));
+router.patch("/update-name", adapterMiddlewares(authenticateUser), adapterRouters(UpdateUsernameController.handle));
 router.post("/user/password/send-token-password-recover", adapterRouters(SendUserPasswordRecoveryLinkController.handle));
 router.patch("/user/password/password-recover", adapterRouters(RecoverUserPasswordController.handle));
 

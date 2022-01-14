@@ -31,7 +31,7 @@ export class QuestionTestRepository implements IQuestionTestRepository {
 			data: {
 				id: "hh98bc1b-22f4-4fc6-be64-3d830068beec",
 				userId: "hh98bc1b-22f4-4fc6-be64-3d830068beed",
-				code: "#10000000000000",
+				code: "hh98bc1b-22f4-4fc6-be64-3d830068beec",
 				name: "História"
 			}
 		});
@@ -39,7 +39,7 @@ export class QuestionTestRepository implements IQuestionTestRepository {
 		await prisma.question.create({
 			data: {
 				id: "hh98bc1b-22f4-4fc6-be64-3d830068beec",
-				roomId: "hh98bc1b-22f4-4fc6-be64-3d830068beec",
+				roomCode: "hh98bc1b-22f4-4fc6-be64-3d830068beec",
 				userId: "hh98aa1b-22f4-4fc6-be64-3d830068beec",
 				name: "Qual o melhor jogador do mundo?"
 			}

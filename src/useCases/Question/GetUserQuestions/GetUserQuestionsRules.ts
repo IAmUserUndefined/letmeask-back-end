@@ -1,7 +1,7 @@
 import { QuestionRepository } from "../../../repositories/Question/QuestionRepository/QuestionRepository";
-import IGetQuestions from "./IGetQuestions";
+import IGetUserQuestions from "./IGetUserQuestions";
 
-export default class GetQuestionsRules {
+export default class GetUserQuestionsRules {
 
 	private repository: QuestionRepository;
 
@@ -9,7 +9,7 @@ export default class GetQuestionsRules {
 		this.repository = new QuestionRepository();
 	}
 
-	async execute( { roomCode }: IGetQuestions ) {
-		return await this.repository.getQuestions(roomCode);
+	async execute( { userId }: IGetUserQuestions ) {
+		return await this.repository.getUserQuestions(userId);
 	}
 }

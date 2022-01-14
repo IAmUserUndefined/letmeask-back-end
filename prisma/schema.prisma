@@ -19,7 +19,6 @@ model User {
   updatedAt DateTime @default(now())
   Room Room?
   Question Question[]
-  Response Response[]
 }
 
 model Room {
@@ -36,22 +35,11 @@ model Room {
 model Question {
   id String @id
   userId String
-  roomId String 
+  roomCode String 
   name String
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
-  Response Response?
+  response String?
   User User @relation(fields: [userId], references: [id])
-  Room Room @relation(fields: [roomId], references: [id])
-}
-
-model Response {
-  id String @id
-  userId String 
-  questionId String 
-  name String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
-  User User @relation(fields: [userId], references: [id])
-  Question Question @relation(fields: [questionId], references: [id])
+  Room Room @relation(fields: [roomCode], references: [code])
 }

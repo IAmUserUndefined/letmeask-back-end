@@ -13,21 +13,21 @@ describe(("Test of question repository"), () => {
 
 	afterAll(async () => {
 		const roomRepository = new RoomRepository();
-		await roomRepository.destroy("1");
+		await roomRepository.destroy("#45645489489");
 		const userRepository = new UserRepository();
 		await userRepository.destroy("1");
 	});
 
 	test("Should create question", async () => {
 		const repository = new QuestionRepository();
-		await repository.store("1", "1", "1", "Qual é a fórmula de Bhaskara");
+		await repository.store("1", "1", "#45645489489", "Qual é a fórmula de Bhaskara");
 	});
 
 	test("Should get questions", async () => {
 		const repository = new QuestionRepository();
-		const question = await repository.getQuestions("1");
+		const question = await repository.getQuestions("#45645489489");
 		expect(question[0].id).toBe("1");
-		expect(question[0].roomId).toBe("1");
+		expect(question[0].roomCode).toBe("#45645489489");
 		expect(question[0].name).toBe("Qual é a fórmula de Bhaskara");
 	});
 

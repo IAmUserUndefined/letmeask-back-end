@@ -15,27 +15,38 @@ export class RoomRepository implements IRoomRepository{
 		});
 	}
 
-	async getManageRoomId(userId: string): Promise<string> {
+	async getUserRoomCode(userId: string): Promise<string> {
 		const room = await prisma.room.findUnique({
 			where: {
 				userId: userId
 			}
 		});
 		
-		const roomId = room ? room.id : null;
+		const code = room ? room.code : null;
 
-		return roomId;
+		return code;
 	}
 
-	async getRooms(): Promise<Room[]> {
-		const rooms = await prisma.room.findMany();
-		return rooms;
+	async getRoom(code: string): Promise<Room> {
+		const room = await prisma.room.findMany({
+			where: {
+				code: code
+			},
+		});
+
+		const roomId = room ? room[0].id : null;
+
+		return await prisma.room.findUnique({
+			where:{
+				id: roomId
+			}
+		});
 	}
 
-	async destroy(id: string): Promise<void> {
+	async destroy(code: string): Promise<void> {
 		await prisma.room.delete({
 			where: {
-				id: id
+				code: code
 			}
 		});
 	}

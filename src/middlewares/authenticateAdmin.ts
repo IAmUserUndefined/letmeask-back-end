@@ -16,10 +16,10 @@ export default async (request: IRequestMiddleware) => {
 
 	const roomRepository = new RoomRepository();
 
-	const room = await roomRepository.getManageRoomId(decode.id);
+	const room = await roomRepository.getUserRoomCode(decode.id);
 
-	const { roomId } = request.params;
+	const { roomCode } = request.params;
 
-	if(room !== roomId)
+	if(room !== roomCode)
 		return new UnauthorizedError("Só o administrador da sala pode fazer essa ação"); 
 };

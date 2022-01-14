@@ -1,3 +1,5 @@
+jest.setTimeout(20000);
+
 import Mail from "./Mail";
 const mail = new Mail();
 
