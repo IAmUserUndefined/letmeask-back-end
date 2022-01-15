@@ -11,6 +11,6 @@ export default class DeleteQuestionRules {
 
 	async execute( { questionId }: IDeleteQuestion ) {
 		await this.repository.destroy(questionId);
-		return"Questão excluída com sucesso";
+		return "Questão excluída com sucesso";
 	} 
 }

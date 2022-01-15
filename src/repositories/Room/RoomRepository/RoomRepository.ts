@@ -33,8 +33,8 @@ export class RoomRepository implements IRoomRepository{
 				code: code
 			},
 		});
-
-		const roomId = room ? room[0].id : null;
+		
+		const roomId = room.length !== 0 ? room[0].id : "";
 
 		return await prisma.room.findUnique({
 			where:{

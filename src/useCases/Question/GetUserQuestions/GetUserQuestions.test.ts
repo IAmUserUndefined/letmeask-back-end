@@ -28,7 +28,7 @@ describe("Get Questions", () => {
 			});
 
 		const response = await request(app)
-			.get("/question/hh98bc1b-22f4-4fc6-be64-3d830068beec")
+			.get("/question")
 			.set("Authorization", `Bearer ${token.body.response}`);
             
 		expect(response.statusCode).toBe(200);
