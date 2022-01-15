@@ -9,9 +9,18 @@
     "emitDecoratorMetadata": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "outDir": "dist",
     "typeRoots": [
       "./src/@types"
     ],
-    "types": ["@types/jest", "@types/node"]
-  }
+    "types": ["@types/jest", "@types/node"],
+  },
+
+  "include": [
+    "src"
+  ],
+
+  "exclude": [
+    "**/*.test.ts"
+  ]
 }

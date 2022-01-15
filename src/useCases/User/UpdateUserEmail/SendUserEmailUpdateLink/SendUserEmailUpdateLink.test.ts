@@ -75,6 +75,6 @@ describe("Send user email update link", () => {
 			});
 
 		expect(response.statusCode).toBe(200);
-		expect(response.body.response).toBe("O link de atualização de email foi enviado para seu email, ele é válido por alguns minutos");
+		expect(response.body.response).toBe("O link de atualização de email foi enviado para seu email, ele é válido por alguns minutos, não esqueça de verificar sua caixa de spam");
 	});
 });

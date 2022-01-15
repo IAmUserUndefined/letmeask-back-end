@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const adapterRouters_1 = __importDefault(require("../adapter/adapterRouters/adapterRouters"));
+const adapterMiddlewares_1 = __importDefault(require("../adapter/adapterMiddlewares/adapterMiddlewares"));
+const authenticateUser_1 = __importDefault(require("../middlewares/authenticateUser"));
+const ensureUserNotBeRoomAdmin_1 = __importDefault(require("../middlewares/ensureUserNotBeRoomAdmin"));
+const CreateQuestionController_1 = __importDefault(require("../useCases/Question/CreateQuestion/CreateQuestionController"));
+const DeleteQuestionController_1 = __importDefault(require("../useCases/Question/DeleteQuestion/DeleteQuestionController"));
+const GetQuestionsController_1 = __importDefault(require("../useCases/Question/GetQuestions/GetQuestionsController"));
+const GetUserQuestionsController_1 = __importDefault(require("../useCases/Question/GetUserQuestions/GetUserQuestionsController"));
+const router = (0, express_1.Router)();
+router.post("/question/:roomCode", (0, adapterMiddlewares_1.default)(authenticateUser_1.default), (0, adapterMiddlewares_1.default)(ensureUserNotBeRoomAdmin_1.default), (0, adapterRouters_1.default)(CreateQuestionController_1.default.handle));
+router.delete("/question/:questionId", (0, adapterMiddlewares_1.default)(authenticateUser_1.default), (0, adapterRouters_1.default)(DeleteQuestionController_1.default.handle));
+router.get("/question/:roomCode/", (0, adapterMiddlewares_1.default)(authenticateUser_1.default), (0, adapterRouters_1.default)(GetQuestionsController_1.default.handle));
+router.get("/question", (0, adapterMiddlewares_1.default)(authenticateUser_1.default), (0, adapterRouters_1.default)(GetUserQuestionsController_1.default.handle));
+exports.default = router;

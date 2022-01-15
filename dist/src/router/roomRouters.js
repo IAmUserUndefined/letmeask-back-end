@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const adapterRouters_1 = __importDefault(require("../adapter/adapterRouters/adapterRouters"));
+const adapterMiddlewares_1 = __importDefault(require("../adapter/adapterMiddlewares/adapterMiddlewares"));
+const authenticateUser_1 = __importDefault(require("../middlewares/authenticateUser"));
+const authenticateAdmin_1 = __importDefault(require("../middlewares/authenticateAdmin"));
+const CreateRoomController_1 = __importDefault(require("../useCases/Room/CreateRoom/CreateRoomController"));
+const DeleteRoomController_1 = __importDefault(require("../useCases/Room/DeleteRoom/DeleteRoomController"));
+const GetRoomController_1 = __importDefault(require("../useCases/Room/GetRoom/GetRoomController"));
+const GetUserRoomCodeController_1 = __importDefault(require("../useCases/Room/GetUserRoomCode/GetUserRoomCodeController"));
+const router = (0, express_1.Router)();
+router.post("/room", (0, adapterMiddlewares_1.default)(authenticateUser_1.default), (0, adapterRouters_1.default)(CreateRoomController_1.default.handle));
+router.delete("/room/:roomCode", (0, adapterMiddlewares_1.default)(authenticateUser_1.default), (0, adapterMiddlewares_1.default)(authenticateAdmin_1.default), (0, adapterRouters_1.default)(DeleteRoomController_1.default.handle));
+router.get("/room/:roomCode", (0, adapterMiddlewares_1.default)(authenticateUser_1.default), (0, adapterRouters_1.default)(GetRoomController_1.default.handle));
+router.get("/room-code", (0, adapterMiddlewares_1.default)(authenticateUser_1.default), (0, adapterRouters_1.default)(GetUserRoomCodeController_1.default.handle));
+exports.default = router;

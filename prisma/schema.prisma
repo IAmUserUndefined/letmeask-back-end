@@ -29,7 +29,7 @@ model Room {
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
   Question Question[]
-  User User @relation(fields: [userId], references: [id])
+  User User @relation(fields: [userId], references: [id], onUpdate: Cascade, onDelete: Cascade)
 }
 
 model Question {
@@ -40,6 +40,6 @@ model Question {
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
   response String?
-  User User @relation(fields: [userId], references: [id])
-  Room Room @relation(fields: [roomCode], references: [code])
+  User User @relation(fields: [userId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  Room Room @relation(fields: [roomCode], references: [code], onUpdate: Cascade, onDelete: Cascade)
 }
