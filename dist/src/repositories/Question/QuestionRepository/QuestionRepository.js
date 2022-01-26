@@ -17,43 +17,63 @@ const index_1 = __importDefault(require("../../../../prisma/index"));
 class QuestionRepository {
     store(id, userId, roomCode, name) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield index_1.default.question.create({
-                data: {
-                    id: id,
-                    userId: userId,
-                    roomCode: roomCode,
-                    name: name
-                }
-            });
+            try {
+                yield index_1.default.question.create({
+                    data: {
+                        id: id,
+                        userId: userId,
+                        roomCode: roomCode,
+                        name: name
+                    }
+                });
+            }
+            catch (e) {
+                console.log(e);
+            }
         });
     }
     getQuestions(roomCode) {
         return __awaiter(this, void 0, void 0, function* () {
-            const questions = yield index_1.default.question.findMany({
-                where: {
-                    roomCode: roomCode
-                }
-            });
-            return questions;
+            try {
+                const questions = yield index_1.default.question.findMany({
+                    where: {
+                        roomCode: roomCode
+                    }
+                });
+                return questions;
+            }
+            catch (e) {
+                console.log(e);
+            }
         });
     }
     getUserQuestions(userId) {
         return __awaiter(this, void 0, void 0, function* () {
-            const questions = yield index_1.default.question.findMany({
-                where: {
-                    userId: userId
-                }
-            });
-            return questions;
+            try {
+                const questions = yield index_1.default.question.findMany({
+                    where: {
+                        userId: userId
+                    }
+                });
+                return questions;
+            }
+            catch (e) {
+                console.log(e);
+            }
         });
     }
     destroy(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield index_1.default.question.delete({
-                where: {
-                    id: id
-                }
-            });
+            try {
+                yield index_1.default.question.delete({
+                    where: {
+                        id: id
+                    }
+                });
+            }
+            catch (e) {
+                console.log(e);
+            }
         });
     }
 }

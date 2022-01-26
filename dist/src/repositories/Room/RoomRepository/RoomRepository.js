@@ -17,49 +17,69 @@ const index_1 = __importDefault(require("../../../../prisma/index"));
 class RoomRepository {
     store(id, userId, code, name) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield index_1.default.room.create({
-                data: {
-                    id: id,
-                    userId: userId,
-                    code: code,
-                    name: name
-                }
-            });
+            try {
+                yield index_1.default.room.create({
+                    data: {
+                        id: id,
+                        userId: userId,
+                        code: code,
+                        name: name
+                    }
+                });
+            }
+            catch (e) {
+                console.log(e);
+            }
         });
     }
     getUserRoomCode(userId) {
         return __awaiter(this, void 0, void 0, function* () {
-            const room = yield index_1.default.room.findUnique({
-                where: {
-                    userId: userId
-                }
-            });
-            const code = room ? room.code : null;
-            return code;
+            try {
+                const room = yield index_1.default.room.findUnique({
+                    where: {
+                        userId: userId
+                    }
+                });
+                const code = room ? room.code : null;
+                return code;
+            }
+            catch (e) {
+                console.log(e);
+            }
         });
     }
     getRoom(code) {
         return __awaiter(this, void 0, void 0, function* () {
-            const room = yield index_1.default.room.findMany({
-                where: {
-                    code: code
-                },
-            });
-            const roomId = room.length !== 0 ? room[0].id : "";
-            return yield index_1.default.room.findUnique({
-                where: {
-                    id: roomId
-                }
-            });
+            try {
+                const room = yield index_1.default.room.findMany({
+                    where: {
+                        code: code
+                    },
+                });
+                const roomId = room.length !== 0 ? room[0].id : "";
+                return yield index_1.default.room.findUnique({
+                    where: {
+                        id: roomId
+                    }
+                });
+            }
+            catch (e) {
+                console.log(e);
+            }
         });
     }
     destroy(code) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield index_1.default.room.delete({
-                where: {
-                    code: code
-                }
-            });
+            try {
+                yield index_1.default.room.delete({
+                    where: {
+                        code: code
+                    }
+                });
+            }
+            catch (e) {
+                console.log(e);
+            }
         });
     }
 }

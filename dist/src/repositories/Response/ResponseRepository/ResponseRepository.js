@@ -17,14 +17,19 @@ const index_1 = __importDefault(require("../../../../prisma/index"));
 class ResponseRepository {
     store(id, response) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield index_1.default.question.update({
-                where: {
-                    id: id
-                },
-                data: {
-                    response: response
-                }
-            });
+            try {
+                yield index_1.default.question.update({
+                    where: {
+                        id: id
+                    },
+                    data: {
+                        response: response
+                    }
+                });
+            }
+            catch (e) {
+                console.log(e);
+            }
         });
     }
 }
