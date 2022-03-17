@@ -1,6 +1,7 @@
 import { UserRepository } from "../../../repositories/User/UserRepository/UserRepository";
 import { InvalidParamError, MissingParamError } from "../../../utils/errors";
 import Helper from "../../../utils/helper/Helper";
+import Cache from "../../../providers/Cache/Cache";
 import IDeleteUser from "./IDeleteUser";
 
 export default class DeleteUserRules {
@@ -21,6 +22,7 @@ export default class DeleteUserRules {
 		const comparePassword = Helper.compareEncryptPassword(password, await this.repository.getPasswordById(id));
 
 		if (comparePassword) { 
+			Cache.del(`username-${id}`);
 			await this.repository.destroy(id);
 			return "Usuário excluído com sucesso";
 		}
