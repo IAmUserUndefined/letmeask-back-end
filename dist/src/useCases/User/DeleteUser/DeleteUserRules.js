@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const UserRepository_1 = require("../../../repositories/User/UserRepository/UserRepository");
 const errors_1 = require("../../../utils/errors");
 const Helper_1 = __importDefault(require("../../../utils/helper/Helper"));
+const Cache_1 = __importDefault(require("../../../providers/Cache/Cache"));
 class DeleteUserRules {
     constructor() {
         this.repository = new UserRepository_1.UserRepository();
@@ -27,6 +28,7 @@ class DeleteUserRules {
                 return new errors_1.InvalidParamError("As senhas não coincidem");
             const comparePassword = Helper_1.default.compareEncryptPassword(password, yield this.repository.getPasswordById(id));
             if (comparePassword) {
+                Cache_1.default.del(`username-${id}`);
                 yield this.repository.destroy(id);
                 return "Usuário excluído com sucesso";
             }
