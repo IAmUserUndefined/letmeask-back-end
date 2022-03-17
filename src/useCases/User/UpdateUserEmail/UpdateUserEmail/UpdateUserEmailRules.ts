@@ -1,6 +1,6 @@
 import { InvalidParamError, MissingParamError } from "../../../../utils/errors";
 import { UserRepository } from "../../../../repositories/User/UserRepository/UserRepository";
-import Mail from "../../../../provider/Mail/Mail";
+import Mail from "../../../../providers/Mail/Mail";
 import IUpdateUserEmail from "./IUpdateUserEmail";
 
 export default class UpdateUserEmailRules {

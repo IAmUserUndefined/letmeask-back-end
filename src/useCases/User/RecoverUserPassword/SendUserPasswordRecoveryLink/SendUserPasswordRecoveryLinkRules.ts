@@ -1,6 +1,6 @@
 import { UserRepository } from "../../../../repositories/User/UserRepository/UserRepository";
 import { InvalidParamError, MissingParamError } from "../../../../utils/errors";
-import Mail from "../../../../provider/Mail/Mail";
+import Mail from "../../../../providers/Mail/Mail";
 import ISendUserPasswordRecoveryLink from "./ISendUserPasswordRecoveryLink";
 import Helper from "../../../../utils/helper/Helper";
 

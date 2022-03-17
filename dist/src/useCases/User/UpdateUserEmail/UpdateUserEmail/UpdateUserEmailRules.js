@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const errors_1 = require("../../../../utils/errors");
 const UserRepository_1 = require("../../../../repositories/User/UserRepository/UserRepository");
-const Mail_1 = __importDefault(require("../../../../provider/Mail/Mail"));
+const Mail_1 = __importDefault(require("../../../../providers/Mail/Mail"));
 class UpdateUserEmailRules {
     constructor() {
         this.repository = new UserRepository_1.UserRepository;

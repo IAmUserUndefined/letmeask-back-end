@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const UserRepository_1 = require("../../../repositories/User/UserRepository/UserRepository");
 const errors_1 = require("../../../utils/errors");
 const Helper_1 = __importDefault(require("../../../utils/helper/Helper"));
-const Mail_1 = __importDefault(require("../../../provider/Mail/Mail"));
+const Mail_1 = __importDefault(require("../../../providers/Mail/Mail"));
 class CreateUserRules {
     constructor() {
         this.repository = new UserRepository_1.UserRepository;

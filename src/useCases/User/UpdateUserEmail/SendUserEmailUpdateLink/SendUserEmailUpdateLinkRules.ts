@@ -1,5 +1,5 @@
 import { UserRepository } from "../../../../repositories/User/UserRepository/UserRepository";
-import Mail from "../../../../provider/Mail/Mail";
+import Mail from "../../../../providers/Mail/Mail";
 import ISendUserEmailUpdateLink from "./ISendUserEmailUpdateLink";
 import { InvalidParamError, MissingParamError } from "../../../../utils/errors";
 import Helper from "../../../../utils/helper/Helper";

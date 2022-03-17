@@ -2,7 +2,7 @@ import { UserRepository } from "../../../repositories/User/UserRepository/UserRe
 import { InvalidParamError, MissingParamError } from "../../../utils/errors";
 import ICreateUser from "./ICreateUser";
 import Helper from "../../../utils/helper/Helper";
-import Mail from "../../../provider/Mail/Mail";
+import Mail from "../../../providers/Mail/Mail";
 
 export default class CreateUserRules {
 	private repository: UserRepository;
